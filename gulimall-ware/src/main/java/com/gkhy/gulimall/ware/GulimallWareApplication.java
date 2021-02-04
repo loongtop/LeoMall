@@ -1,4 +1,4 @@
-package com.gkhy.gulimallware;
+package com.gkhy.gulimall.ware;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
