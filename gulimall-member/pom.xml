@@ -12,9 +12,9 @@
     <artifactId>gulimall-member</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>gulimall-member</name>
-    <description>会员</description>
+    <description>membe服务</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>15</java.version>
         <spring-cloud.version>2020.0.0</spring-cloud.version>
     </properties>
     <dependencies>

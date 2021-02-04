@@ -12,9 +12,9 @@
     <artifactId>gulimall-coupon</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>gulimall-coupon</name>
-    <description>商卷服务</description>
+    <description>coupon服务</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
         <spring-cloud.version>2020.0.0</spring-cloud.version>
     </properties>
     <dependencies>
