@@ -16,4 +16,9 @@ buildNumber.properties
 **/target/
 .idea
 
-**/.gitignore
+#**/.gitignore
+**/.DS_Store
+
+**/*.tmp
+**/*.log
+**/*.jar
