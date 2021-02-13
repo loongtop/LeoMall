@@ -1,20 +1,16 @@
 package com.gkhy.gulimall.member.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.gkhy.gulimall.member.entity.UserEntity;
-import com.gkhy.gulimall.member.service.UserService;
 import com.gkhy.common.utils.PageUtils;
 import com.gkhy.common.utils.R;
+import com.gkhy.gulimall.member.entity.UserEntity;
+import com.gkhy.gulimall.member.feign.CouponFeignService;
+import com.gkhy.gulimall.member.service.UserService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 
@@ -31,6 +27,27 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    CouponFeignService couponFeignService;
+
+    @RequestMapping("/coupons")
+    public R test() {
+
+        UserEntity userEntity = new UserEntity();
+        userEntity.setId(3l);
+        userEntity.setLevelId(1l);
+        userEntity.setUsername("Gaofei");
+        userEntity.setCity("蒙特利尔");
+        userEntity.setNickname("高飞-禹舜");
+        userEntity.setPassword("1111111");
+//        userService.save(userEntity);
+
+        R memberCoupons = couponFeignService.memberCoupons();
+        System.out.println("member/user/coupons结束。。。。。。");
+        return R.ok().put("member", userEntity).put("coupons", memberCoupons.get("coupons"));
+    }
+
+
     /**
      * 列表
      */
@@ -39,6 +56,7 @@ public class UserController {
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = userService.queryPage(params);
 
+        System.out.println("member/user/list保存结束。。。。。。");
         return R.ok().put("page", page);
     }
 

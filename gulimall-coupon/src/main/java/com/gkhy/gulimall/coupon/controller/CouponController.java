@@ -1,20 +1,15 @@
 package com.gkhy.gulimall.coupon.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.gkhy.gulimall.coupon.entity.CouponEntity;
-import com.gkhy.gulimall.coupon.service.CouponService;
 import com.gkhy.common.utils.PageUtils;
 import com.gkhy.common.utils.R;
+import com.gkhy.gulimall.coupon.entity.CouponEntity;
+import com.gkhy.gulimall.coupon.service.CouponService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 
@@ -30,6 +25,16 @@ import com.gkhy.common.utils.R;
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    @RequestMapping("/user/list")
+    public R memberCoupons(){
+        CouponEntity couponEntity = new CouponEntity();
+        couponEntity.setCouponName("leo减100000000");
+        couponService.save(couponEntity);
+        System.out.println("coupon/coupon/user/list保存成功。。。。");
+        return R.ok().put("coupons", Arrays.asList(couponEntity));
+    }
+
 
     /**
      * 列表
