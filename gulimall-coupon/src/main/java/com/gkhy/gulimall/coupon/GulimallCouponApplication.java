@@ -3,8 +3,9 @@ package com.gkhy.gulimall.coupon;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-@MapperScan("com.gkhy.gulimall.coupon.dao")
+//@MapperScan("com.gkhy.gulimall.coupon.dao")
 @SpringBootApplication
 public class GulimallCouponApplication {
 

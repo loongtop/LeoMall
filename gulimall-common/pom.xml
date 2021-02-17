@@ -107,7 +107,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
-
 <!--       end of dependencies -->
     </dependencies>
     <dependencyManagement>
